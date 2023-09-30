@@ -6,5 +6,5 @@ export const initMDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URL)
         winlog.info('Connection with MongoDB Atlas database established successfully')
-    } catch (err) { winlog.fatal(err) }
+    } catch (err) {console.log(err) }
 }
