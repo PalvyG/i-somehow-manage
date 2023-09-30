@@ -1,0 +1,109 @@
+paths:
+  /products:
+    get:
+      tags:
+        [Products]
+      summary: Retrieves all products
+      responses:
+        200:
+          description: Products retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProdGetAll'
+        500:
+          description: Internal server error
+    post:
+      tags:
+        [Products]
+      summary: Uploads a new product (ADMINs only)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/Product'
+        required: true
+      responses:
+        200:
+          description: Product uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProdGetOne'
+        400:
+          description: Product validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProdValidationError'
+    delete:
+      tags:
+        [Products]
+      summary: Deletes all products (ADMINs only)
+      responses:
+        200:
+          description: All products deleted successfully
+        500:
+          description: Internal server error
+  /products/{pid}:
+    get:
+      tags:
+        [Products]
+      summary: Retrieves a specific product
+      responses:
+        200:
+          description: Product with specified ID retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProdGetOne'
+        404:
+          description: Product not found with specified ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProdNotFound'
+    put:
+      tags:
+        [Products]
+      summary: Updates an existing product (ADMINs only)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/Product'
+        required: true
+      responses:
+        200:
+          description: Product uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProdGetOne'
+        400:
+          description: Product validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProdValidationError'
+        404:
+          description: Product not found with specified ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProdNotFound'        
+    delete:
+      tags:
+        [Products]
+      summary: Deletes all products (ADMINs only)
+      responses:
+        200:
+          description: Product with specified ID deleted successfully
+        404:
+          description: Product not found with specified ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProdNotFound'   
+        500:
+          description: Internal server error

@@ -1,0 +1,196 @@
+paths:
+  /carts:
+    get:
+      tags:
+        [Carts]
+      summary: Retrieves all carts (ADMINs only)
+      responses:
+        200:
+          description: Carts retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartGetAll'
+        500:
+          description: Internal server error
+  /carts/{cid}:
+    get:
+      tags:
+        [Carts]
+      summary: Retrieves the user's cart (must be logged in with ADMIN or the corresponding user)
+      responses:
+        200:
+          description: Cart with specified ID retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartGetOne'
+        400:
+          description: Authentication error (Must be logged in)
+        403:
+          description: Authorization error (Must be logged in with ADMIN or corresponding user)
+        404:
+          description: Cart not found with specified ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartNotFound'
+    put:
+      tags:
+        [Carts]
+      summary: Updates a specific cart (must be logged in with ADMIN or the corresponding user)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/Cart'
+        required: true
+      responses:
+        200:
+          description: Cart with specified ID updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartGetOne'
+        400:
+          description: Authentication error (Must be logged in)
+        403:
+          description: Authorization error (Must be logged in with ADMIN or corresponding user)
+        404:
+          description: Cart not found with specified ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartNotFound'
+  /carts/{cid}/prod/{pid}:
+    put:
+      tags:
+        [Carts]
+      summary: Adds a product to the specified cart (using IDs) (must be logged in with ADMIN or the corresponding user)
+      responses:
+        200:
+          description: Cart with specified ID updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartGetOne'
+        400:
+          description: Authentication error (Must be logged in)
+        403:
+          description: Authorization error (Must be logged in with ADMIN or corresponding user)
+        404:
+          description: Cart or product not found with specified ID
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schema/Carts/ProdNotFound'
+                  - $ref: '#/components/schema/Carts/CartNotFound'
+    delete:
+      tags:
+        [Carts]
+      summary: Deletes a product from the specified cart (using IDs) (must be logged in with ADMIN or the corresponding user)
+      responses:
+        200:
+          description: Cart with specified ID updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartGetOne'
+        400:
+          description: Authentication error (Must be logged in)
+        403:
+          description: Authorization error (Must be logged in with ADMIN or corresponding user)
+        404:
+          description: Cart or product not found with specified ID
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schema/Carts/ProdNotFound'
+                  - $ref: '#/components/schema/Carts/CartNotFound'
+  /carts/{cid}/allprod:
+    delete:
+      tags:
+        [Carts]
+      summary: Removes all products from the specified cart (must be logged in with ADMIN or the corresponding user)
+      responses:
+        200:
+          description: All products removed from cart successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartDeleteAllProd'
+        400:
+          description: Authentication error (Must be logged in)
+        403:
+          description: Authorization error (Must be logged in with ADMIN or corresponding user)
+        404:
+          description: Cart not found with specified ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartNotFound'
+  /carts/{cid}/checkout:
+    post:
+      tags:
+        [Carts]
+      summary: Registers a ticket with all the cart's data
+      responses:
+        200:
+          description: Ticket generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/TicketGetOne'
+        400:
+          description: Authentication error (Must be logged in)
+        403:
+          description: Authorization error (Must be logged in with ADMIN or corresponding user)
+        404:
+          description: Cart not found with specified ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartNotFound'
+        500:
+          description: Internal server error
+  /carts/tickets:
+    get:
+      tags:
+        [Carts]
+      summary: Retrieves all tickets (ADMINs only)
+      responses:
+        200:
+          description: Tickets retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/TicketGetAll'
+        500:
+          description: Internal server error
+  /carts/{cid}/tickets:
+    get:
+      tags:
+        [Carts]
+      summary: Retrieves all tickets associated with the specified cart (must be logged in with ADMIN or corresponding user)
+      responses:
+        200:
+          description: Tickets retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/TicketGetAll'
+        400:
+          description: Authentication error (Must be logged in)
+        403:
+          description: Authorization error (Must be logged in with ADMIN or corresponding user)
+        404:
+          description: Cart not found with specified ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartNotFound'
+        500:
+          description: Internal server error
+

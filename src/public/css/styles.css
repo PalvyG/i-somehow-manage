@@ -1,0 +1,130 @@
+#header {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+#header ul li {
+    min-width: 75px;
+}
+
+h1,
+h2,
+.title {
+    margin-left: 25px;
+    max-width: 800px;
+}
+
+a {
+    color: blue !important;
+    text-decoration: underline !important;
+    cursor: auto !important;
+}
+
+#header__username {
+    flex-direction: flex-end;
+}
+
+#header__login, #header__firstname {
+    margin-right: 63vw;
+    margin-top: 15px;
+}
+
+#profile__ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex__container {
+    display: flex;
+    gap: 100px;
+}
+
+#form__prods {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#form__register,
+#form__login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 50px;
+}
+
+#form__register__container,
+#form__login__container {
+    max-width: fit-content;
+}
+
+#form__prods label {
+    width: 75px;
+}
+
+#form__register label,
+#form__login label {
+    width: 150px;
+}
+
+#form__prods input {
+    height: 20px;
+    width: 260px;
+}
+
+#form__register input,
+#form__login input {
+    height: 20px;
+    width: 400px;
+}
+
+#btn__login {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+#btn__login #login__user {
+    width: 100px !important;
+    height: 25px !important;
+}
+
+#other__logins {
+    margin-left: 50px;
+    margin-top: -25px;
+    display: flex;
+    gap: 10px;
+    max-width: 400px !important;
+    justify-content: flex-start;
+}
+
+#login__github, #login__register {
+    width: 100px !important;
+    height: 25px !important;
+}
+
+#add__prod {
+    margin-top: 25px;
+    width: 100% !important
+}
+
+#create__user {
+    margin-top: 5px;
+    height: 25px !important;
+    width: 200px !important;
+    align-self: flex-end;
+}
+
+.btn__ok,
+.link__ok {
+    height: 25px !important;
+    margin-left: 50px;
+}
+
+#footer {
+    display: flex;
+    justify-content: start;
+    margin-left: 25px;
+}

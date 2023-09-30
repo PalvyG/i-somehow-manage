@@ -1,0 +1,15 @@
+<div class="flex__container" id="header">
+    <ul class="flex__container">
+        <li><a href="/views/index">Home</a></li>
+        <li><a href="/views/products-realtime">Products</a></li>
+        <li><a href="/views/profile">Profile</a></li>
+    </ul>
+    <div id="header__username">
+        {{#if session.user.firstname}}
+        <p id="header__firstname">Welcome, {{session.user.firstname}}!</p>
+        {{!-- <button id="header__logout" onclick="location.href='/u/logout'" method="delete">Log-Out</button> --}}
+        {{else}}
+        <button id="header__login" onclick="location.href='/views/login'">Log-In</button>
+        {{/if}}
+    </div>
+</div>

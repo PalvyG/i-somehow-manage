@@ -1,0 +1,54 @@
+paths:
+  /u/register:
+    post:
+      tags:
+        [Users]
+      summary: Registers a user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/UserRegistration'
+        required: true
+      responses:
+        200:
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/UserGetOne'
+        400:
+          description: Validation error. User must contain the aforementioned properties.
+  /u/loginapi:
+    post:
+      tags:
+        [Users]
+      summary: Logs in with user credentials
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/UserLogin'
+        required: true
+      responses:
+        200:
+          description: User logged in successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/UserGetOne'
+        400:
+          description: Validation error with user credentials.
+  /u/profile:
+    get:
+      tags:
+        [Users]
+      summary: Retrieves the user's data (if there is one logged in)
+      responses:
+        200:
+          description: User retrieved successfully
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schema/Users/UserGetOne'
+

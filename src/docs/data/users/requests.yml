@@ -1,0 +1,39 @@
+components:
+  parameters:
+    schemas:
+      UserRegistration:
+        type: object
+        required: [firstname, lastname, age, email, password]
+        properties:
+          firstname:
+            type: String
+          lastname:
+            type: String
+          age:
+            type: Number
+          email:
+            type: String
+          password:
+            type: String
+            description: Password will be automatically encrypted in the responses
+        example:
+          {
+            firstname: John,
+            lastname: Doe,
+            age: 30,
+            email: johndoe@example.com,
+            password: mypass123
+          }
+      UserLogin:
+        type: Object
+        required: [email, password]
+        properties:
+          email:
+            type: String
+          password:
+            type: String
+        example:
+          {
+            email: johndoe@example.com,
+            password: mypass123
+          }

@@ -1,0 +1,25 @@
+components:
+  schema:
+    Users:
+      UserGetOne:
+        type: Object
+        properties:
+          name:
+            type: String
+          surname:
+            type: String
+          yearsold:
+            type: String
+          mail:
+            type: String
+          role:
+            type: String
+            description: This value will be 'user' by default, unless registering with the string '.admin' is included inside the 'email' and 'password' properties.
+        example:
+          {
+            name: John,
+            surname: Doe,
+            yearsold: 30,
+            mail: johndoe@example.com,
+            role: user
+          }

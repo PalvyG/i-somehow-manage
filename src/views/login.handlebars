@@ -1,0 +1,14 @@
+<h2>Log-in</h2>
+<div class="form__container" id="form__login__container">
+    <form id="form__login" action="/u/login" method="post">
+        <label>E-Mail:</label><input type="email" name="email" id="input__user__email">
+        <label>Password:</label><input type="password" name="password" id="input__user__pass">
+        <div id="btn__login">
+            <input id="login__user" type="submit" value="Log-in">
+        </div>
+    </form>
+    <div id="other__logins">
+        <button id="login__register" onclick="location.href='/views/register'">Register</button>
+        <button id="login__github" onclick="location.href='/u/github'">GitHub</button>
+    </div>
+</div>

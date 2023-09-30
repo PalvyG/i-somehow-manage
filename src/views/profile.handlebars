@@ -1,0 +1,10 @@
+{{#if session.userDTO}}
+<ul id="profile__ul">
+    <li>First Name: {{session.userDTO.name}}</li>
+    <li>Last Name: {{session.userDTO.surname}}</li>
+    <li>E-Mail: {{session.userDTO.mail}}</li>
+    <li>Age: {{session.userDTO.yearsold}}</li>
+</ul>
+{{else}}
+<h2>Log in to see your profile!</h2>
+{{/if}}

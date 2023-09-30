@@ -1,0 +1,42 @@
+components:
+  parameters:
+    schemas:
+      Cart:
+        type: object
+        required: true
+        properties:
+          products:
+            type: Array
+            items:
+              properties:
+                item:
+                  type: Mongoose ObectId
+                price:
+                  type: Number
+                  description: Individual product price
+                qty:
+                  type: Number
+                amount:
+                  type: Number
+                  description: Total amount of product type (price * qty)
+            total:
+              type: Number
+        example:
+          {
+            products:
+              [
+                {
+                  item: abc123,
+                  price: 10,
+                  qty: 2,
+                  amount: 20
+                },
+                {
+                  item: xyz789,
+                  price: 20,
+                  qty: 3,
+                  amount: 60
+                }
+              ],
+            total: 80
+          }

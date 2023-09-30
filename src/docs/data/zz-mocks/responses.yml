@@ -1,0 +1,90 @@
+components:
+  schema:
+    Products:
+      ProdGetOne:
+        type: object
+        properties:
+          _id:
+            type: String
+          title:
+            type: String
+          desc:
+            type: String
+          price:
+            type: Number
+          stock:
+            type: Number
+          cat:
+            type: String
+          status:
+            type: Boolean
+        example:
+          _id: 64775412d99766d6p5z3x589
+          title: Socks
+          desc: Comfy Socks!
+          price: 5
+          stock: 50
+          cat: underwear
+          status: true
+      ProdGetAll:
+        type: array
+        items:
+          properties:
+            _id:
+              type: String
+            title:
+              type: String
+            desc:
+              type: String
+            price:
+              type: Number
+            stock:
+              type: Number
+            cat:
+              type: String
+            status:
+              type: Boolean
+        example:
+          {
+            products: [
+              {
+                _id: 64811946d99655d6b5d3b034,
+                title: Messi Shoes,
+                desc: Messi shoes, limited edition.,
+                price: 100,
+                stock: 10,
+                cat: shoes,
+                status: true,
+              },
+              {
+                _id: 64811946d99655d6b5d3b034,
+                title: CR7 Shoes,
+                desc: CR7, Juventus edition.,
+                price: 70,
+                stock: 7,
+                cat: shoes,
+                status: true,
+              }
+            ]
+          }
+      ProdValidationError:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Error in the Product Validator middleware.
+        example:
+          {
+            message: (!) Invalid or missing property or value.,
+            details: "(i) Product must contain the following properties: title, desc, price, stock, cat, status, code."
+          }
+      ProdNotFound:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Product not found.
+        example:
+          { 
+            message: (!) Could not find product with specified ID (ID - 'xyz789').
+          }

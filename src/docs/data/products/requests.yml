@@ -1,0 +1,27 @@
+components:
+  parameters:
+    schemas:
+      Product:
+        type: object
+        required: [title, price, stock]
+        properties:
+          title:
+            type: String
+          desc:
+            type: String
+          price:
+            type: Number
+          stock:
+            type: Number
+          cat:
+            type: String
+          status:
+            type: Boolean
+        example:
+          title: Socks
+          desc: Comfy Socks!
+          price: 5
+          stock: 50
+          cat: underwear
+          status: true
+          

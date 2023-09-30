@@ -1,0 +1,26 @@
+components:
+  parameters:
+    schemas:
+      MockProd:
+        type: object
+        required: [title, price, stock]
+        properties:
+          title:
+            type: String
+          desc:
+            type: String
+          price:
+            type: Number
+          stock:
+            type: Number
+          cat:
+            type: String
+          status:
+            type: Boolean
+        example:
+          title: Mock Socks
+          desc: Comfy Mock Socks!
+          price: 1
+          stock: 100
+          cat: underwear
+          status: true
